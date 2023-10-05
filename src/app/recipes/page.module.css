@@ -1,0 +1,30 @@
+.recipe {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeName {
+  position: relative;
+  display: flex;
+  opacity: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: brightness(20%);
+}
+
+@media (min-width: 768px) {
+  .recipe {
+    display: block;
+    --showRecipeName: 0%;
+  }
+  .recipe:hover {
+    --showRecipeName: 100%;
+  }
+  .recipeName {
+    opacity: var(--showRecipeName);
+    position: absolute;
+    inset: 0;
+    transition: opacity 200ms ease;
+  }
+}
