@@ -23,13 +23,13 @@ export default async function Recipes ({ searchParams } : { searchParams: Record
   return (
     <ContentLayout>
       <article className='max-w-4xl mx-auto p-3 overflow-hidden'>
-        <main className='grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4'>
+        <main className='grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-4'>
           {
             recipes.map(({ recipe, _links }, index) => {
               const recipeId = _links.self.href.split('/')[6].split('?')[0]
               return (
                 <Link key={recipe.label + index} href={`/recipes/${recipeId}`} className={`${styles.recipe} relative rounded overflow-hidden shadow hover:shadow-md`}>
-                  <Image src={recipe.images.REGULAR.url} height={recipe.images.REGULAR.height} width={recipe.images.REGULAR.width} alt={recipe.label} blurDataURL={recipe.images.THUMBNAIL.url} priority />
+                  <Image className='w-full' src={recipe.images.REGULAR.url} height={recipe.images.REGULAR.height} width={recipe.images.REGULAR.width} alt={recipe.label} blurDataURL={recipe.images.THUMBNAIL.url} priority />
                   <h2 className={`${styles.recipeName} text-sm md:text-2xl font-bold p-3 text-center`}>
                     {recipe.label.length > 45 ? `${recipe.label.substring(0, 45)}...` : recipe.label}
                   </h2>

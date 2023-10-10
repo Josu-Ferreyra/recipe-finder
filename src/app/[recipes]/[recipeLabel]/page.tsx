@@ -16,11 +16,11 @@ export default async function Recipe ({ params: { recipeLabel } } : { params: { 
   return (
     <ContentLayout>
       <article className='max-w-4xl m-auto p-3'>
-        <div className='flex gap-4 items-center'>
+        <div className='grid grid-cols-[100px,1fr] gap-4 items-center'>
           <Image className='rounded-lg' src={recipe.images.THUMBNAIL.url} height={recipe.images.THUMBNAIL.height} width={recipe.images.THUMBNAIL.width} alt={recipe.label} />
           <div className=''>
             <h1 className='text-3xl font-bold mb-2'>{recipe.label}</h1>
-            <div className='flex gap-2'>
+            <div className='flex flex-wrap gap-2'>
               <p className='capitalize text-sm py-1 px-2 bg-pink-700 rounded'>
                 {recipe.cuisineType} food
               </p>
@@ -28,23 +28,16 @@ export default async function Recipe ({ params: { recipeLabel } } : { params: { 
                 {recipe.mealType}
               </p>
               {
-              recipe.dietLabels.map(hLabel => (
-                <p key={hLabel} className='capitalize text-sm py-1 px-2 bg-green-700 rounded'>
-                  {hLabel}
-                </p>
-              ))
-            }
+                recipe.dietLabels.map(hLabel => (
+                  <p key={hLabel} className='capitalize text-sm py-1 px-2 bg-green-700 rounded'>
+                    {hLabel}
+                  </p>
+                ))
+              }
             </div>
           </div>
-          <p className='flex items-center gap-3 text-4xl ms-auto font-bold bg-zinc-950 p-4 rounded'>
-            {Math.floor(recipe.calories / recipe.yield)}
-            <span className='flex flex-col text-center text-xs'>
-              <span className='border-b-2 border-white'>Kcal</span>
-              <span>Portion</span>
-            </span>
-          </p>
         </div>
-        <div className='flex justify-between my-4 gap-4'>
+        <div className='flex flex-wrap justify-between my-4 gap-4'>
           <div className=''>
             <h2 className='my-2 text-3xl font-bold underline'>Ingredients</h2>
             <ul>
