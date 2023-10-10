@@ -31,7 +31,7 @@ export default async function Recipes ({ searchParams } : { searchParams: Record
                 <Link key={recipe.label + index} href={`/recipes/${recipeId}`} className={`${styles.recipe} relative rounded overflow-hidden shadow hover:shadow-md`}>
                   <Image className='w-full' src={recipe.images.REGULAR.url} height={recipe.images.REGULAR.height} width={recipe.images.REGULAR.width} alt={recipe.label} blurDataURL={recipe.images.THUMBNAIL.url} priority />
                   <h2 className={`${styles.recipeName} text-sm md:text-2xl font-bold p-3 text-center`}>
-                    {recipe.label.length > 45 ? `${recipe.label.substring(0, 45)}...` : recipe.label}
+                    {recipe.label.length > 35 ? `${recipe.label.substring(0, 35)}...` : recipe.label}
                   </h2>
                 </Link>
               )
