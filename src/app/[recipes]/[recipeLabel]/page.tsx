@@ -38,7 +38,7 @@ export default async function Recipe ({ params: { recipeLabel } } : { params: { 
           </div>
         </div>
         <div className='flex flex-wrap justify-between my-4 gap-4'>
-          <div className=''>
+          <div className='max-w-full md:max-w-[50%]'>
             <h2 className='my-2 text-3xl font-bold underline'>Ingredients</h2>
             <ul>
               {
